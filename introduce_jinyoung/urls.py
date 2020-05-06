@@ -16,17 +16,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 import myapp.views
-import portfolio.views
-from django.conf.urls.static import static
-from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     #myapp앱에 해당되는 urls
     path('', myapp.views.main, name="main"),
     path('profile/', myapp.views.profile, name="profile"),
-   
-    #portfolio앱에 해당되는 url
-    path('portfolio/', portfolio.views.portfolio, name="portfolio"),
+    path('blog/<int:blog_id>', myapp.views.detail, name = "detail"),
+    path('new/', myapp.views.new, name = "new"),
+    path('blog/create', myapp.views.create, name = "create"),
+    path('blog/edit/<int:blog_id>', myapp.views.edit, name = "edit"),
+    path('blog/update/<int:blog_id>', myapp.views.update, name = "update"),
+    path('blog/delete/<int:blog_id>', myapp.views.delete, name = "delete"),
 ]
-urlpatterns+= static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block contents %}
+<div class="card w-75">
+    <div class="card-body">
+        <h3 class="card-title">{{details.title}}</h3>
+        <h6 class="card-title">{{details.name}}</h6>
+        <h6 class="card-title">{{details.location}}</h6>
+        {{details.pub_date}}
+        <p class="card-text">{{details.body}}</p>
+
+
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+            삭제
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">진짜 삭제할거야......?</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        아래 빨간 버튼 누르면 이 글은 지워집니다 ㅎㅎㅎㅎ
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">안할게 ㅠㅠ</button>
+                        <a href="{% url 'delete' details.id %}"><button type="button"
+                                class="btn btn-danger">삭제하기</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="{% url 'edit' details.id %}"><button type="button" class="btn btn-info">수정하기</button></a>
+        <a href="{% url 'profile' %}"><button type="button" class="btn btn-info">이전화면으로</button></a>
+    </div>
+</div>
+{% endblock %}

@@ -1,17 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>최진영은 누구인가</title>
-    <h1>Who is 진영?!?</h1>
-</head>
+{% extends 'base.html' %}
+{% block contents %}
 <body>
+    <hr>
     <h2>최진영을 소개해보겠습니다</h2>
+    <hr>
     <h3>아래를 눌러주세요</h3>
+    <hr>
 </body>
-<footer>
+<footer class="text-center">
     <h5><a href="{% url 'profile' %}"> 여기를 누르면 최진영에 관한 TMI를 보여줍니다</h5>
-    <h5><a href="{% url 'portfolio' %}"> 여기를 누르면 최진영의 꿈과 목표를 보여줍니다</h5>
 </footer>
-</html>
+{% endblock %}

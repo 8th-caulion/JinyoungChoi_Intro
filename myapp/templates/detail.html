@@ -40,5 +40,16 @@
         <a href="{% url 'edit' details.id %}"><button type="button" class="btn btn-info">수정하기</button></a>
         <a href="{% url 'profile' %}"><button type="button" class="btn btn-info">이전화면으로</button></a>
     </div>
+    <hr>
+    {% for comment in post.comments.all %}
+    <div class="comment">
+        <div class="date">{{ comment.pub_date }}</div>
+        <strong>{{ comment.author }}</strong>
+        <p>{{ comment.text|linebreaks }}</p>
+    </div>
+    {% empty %}
+    <p>아직 달린 댓글이 없습니다..</p>
+    {% endfor %}
 </div>
+
 {% endblock %}
